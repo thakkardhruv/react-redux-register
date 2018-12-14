@@ -1,26 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'jquery/dist/jquery.min.js';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'font-awesome/css/font-awesome.min.css';
+
+import AddEvent from './components/AddEvent';
+import EventPanel from './components/EventPanel';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <React.Fragment>
+        <Header />
+        <div className="container">
+          <AddEvent />
+          <div className="row">&nbsp;</div>
+          <div className="row">
+                  <div className="col-2">
+                  <button type="button" className="btn btn-success btn-lg" data-toggle="modal" data-target="#addmodal" ><span className="fa fa-plus"></span>Add Event</button>
+                  </div>
+          </div>
+          <div className="row">&nbsp;</div>
+          <EventPanel />
+        </div>
+        <Footer />
+      </React.Fragment>
     );
   }
 }
